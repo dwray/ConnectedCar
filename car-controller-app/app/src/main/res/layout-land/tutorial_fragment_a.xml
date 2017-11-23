@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--*****************************************************************************
+* Copyright (c) 2014-2015 IBM Corp.
+*
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* and Eclipse Distribution License v1.0 which accompany this distribution.
+*
+* The Eclipse Public License is available at
+*   http://www.eclipse.org/legal/epl-v10.html
+* and the Eclipse Distribution License is available at
+*   http://www.eclipse.org/org/documents/edl-v10.php.
+*
+* Contributors:
+*    Mike Robertson - initial contribution
+*****************************************************************************-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_orange_dark" >
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/tutorial_pageA_title"
+            android:textColor="@color/white"
+            android:textSize="24sp"/>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+        <TextView
+                android:id="@+id/tvFragFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="@string/tutorial_pageA_text" />
+    </LinearLayout>
+    <Button
+            style="@style/BottomButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/skip_tutorial_label"
+            android:textColor="@color/white"
+            android:id="@+id/skipButton"/>
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--*******************************************************************************
+* Copyright (c) 2014-2015 IBM Corp.
+*
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* and Eclipse Distribution License v1.0 which accompany this distribution.
+*
+* The Eclipse Public License is available at
+*   http://www.eclipse.org/legal/epl-v10.html
+* and the Eclipse Distribution License is available at
+*   http://www.eclipse.org/org/documents/edl-v10.php.
+*
+* Contributors: Mike Robertson
+*
+*******************************************************************************-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_home"
+          android:title="@string/home_label"
+          android:orderInCategory="0"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_tutorial"
+          android:title="@string/tutorial_label"
+          android:orderInCategory="1"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_profiles"
+          android:title="@string/profiles_label"
+          android:orderInCategory="2"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_tracking"
+        android:title="@string/track_label_tracker"
+        android:orderInCategory="3"
+        app:showAsAction="never"/>
+    <item android:id="@+id/clear"
+          android:title="@string/clear_log_label"
+          android:orderInCategory="4"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_clear_profiles"
+        android:title="@string/clear_profiles_label"
+        android:orderInCategory="5"
+        app:showAsAction="never"/>
+    <item android:id="@+id/action_crash_reset"
+        android:title="@string/crash_reset_label"
+        android:orderInCategory="6"
+        app:showAsAction="never"/>
+</menu>

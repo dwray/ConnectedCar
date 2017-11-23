@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*******************************************************************************
+ * Copyright (c) 2014-2016 IBM Corp.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * and Eclipse Distribution License v1.0 which accompany this distribution.
+ *
+ * The Eclipse Public License is available at
+ *   http://www.eclipse.org/legal/epl-v10.html
+ * and the Eclipse Distribution License is available at
+ *   http://www.eclipse.org/org/documents/edl-v10.php.
+ *
+ * Contributors:
+ *    Mike Robertson - initial contribution
+ *    Aldo Eisma - update to Android M, minor fixes and enhancements
+*******************************************************************************/
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.solace.labs.cardemo.controller"
+    android:versionCode="3"
+    android:versionName="2.1.0">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.solace.labs.cardemo.controller.IoTStarterApplication"
+        android:icon="@drawable/ic_icon"
+        android:label="@string/app_name"
+        android:logo="@drawable/ic_logo"
+        android:theme="@style/IoTStarterTheme">
+        <activity
+            android:name="com.solace.labs.cardemo.controller.activities.TutorialPagerActivity"
+            android:launchMode="standard"></activity>
+        <activity
+            android:name="com.solace.labs.cardemo.controller.activities.MainPagerActivity"
+            android:launchMode="singleTask">
+            <!--android:screenOrientation="portrait">-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.solace.labs.cardemo.controller.activities.ProfilesActivity"
+            android:launchMode="standard"></activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- Mqtt Service -->
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="com.solace.labs.cardemo.controller.activities.MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
+    </application>
+
+</manifest>

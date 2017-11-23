@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*******************************************************************************
+* Copyright (c) 2014-2015 IBM Corp.
+*
+* All rights reserved. This program and the accompanying materials
+* are made available under the terms of the Eclipse Public License v1.0
+* and Eclipse Distribution License v1.0 which accompany this distribution.
+*
+* The Eclipse Public License is available at
+*   http://www.eclipse.org/legal/epl-v10.html
+* and the Eclipse Distribution License is available at
+*   http://www.eclipse.org/org/documents/edl-v10.php.
+*
+* Contributors:
+*    Mike Robertson - initial contribution
+*******************************************************************************/
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              style="@style/ActivityBackground"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.solace.labs.cardemo.controller.fragments.IoTPagerFragment"
+              android:id="@+id/iotRoot"
+        >
+    <com.solace.labs.cardemo.controller.views.DrawingView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/drawing">
+    </com.solace.labs.cardemo.controller.views.DrawingView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout4">
+
+        <TextView
+            android:id="@+id/deviceIDSettingIoT"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/VIN_setting" />
+
+        <TextView
+            android:id="@+id/deviceIDIoT"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.12"
+            android:text="@string/VIN_value"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/switchLights"
+            android:layout_alignStart="@+id/switchLights"
+            android:layout_below="@+id/linearLayout4"
+            android:layout_marginLeft="119dp"
+            android:layout_marginStart="119dp"
+            android:text="Ambiance"
+            android:textAppearance="@style/MyActionBarTitleText" />
+
+        <View android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="0.04" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+        <TextView
+                style="@style/MyActionBarTitleText"
+                android:gravity="center"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/accel_info"
+                android:id="@+id/accelInfo"
+                />
+        <TextView
+                style="@style/MyActionBarTitleText"
+                android:gravity="center"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/accel_x"
+                android:id="@+id/accelX"
+                />
+
+        <TextView
+            android:id="@+id/accelY"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/accel_y" />
+
+        <TextView
+            android:id="@+id/accelZ"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/accel_z" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/messagesPublishedView"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/messages_published"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/messagesReceivedView"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/messages_received"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/sendText"
+            style="@style/BottomButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/send_text"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/StartEngineButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp" />
+
+    <Button
+        android:id="@+id/soundHornButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horn"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_alignBaseline="@+id/StartEngineButton"
+        android:layout_alignBottom="@+id/StartEngineButton"
+        android:layout_toRightOf="@+id/StartEngineButton"
+        android:layout_toEndOf="@+id/StartEngineButton" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupColours"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="52dp"
+        android:layout_marginEnd="52dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonRed"
+            android:layout_width="71dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/radioButtonGreen"
+            android:layout_alignStart="@+id/radioButtonGreen"
+            android:layout_alignTop="@+id/StartEngineButton"
+            android:text="Red" />
+
+        <RadioButton
+            android:id="@+id/radioButtonGreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioButtonRed"
+            android:layout_alignLeft="@+id/radioButtonGreen"
+            android:layout_alignStart="@+id/radioButtonGreen"
+            android:layout_toEndOf="@+id/radioGroupColours"
+            android:layout_toRightOf="@+id/radioGroupColours"
+            android:text="Green" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBlue"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/radioButtonGreen"
+            android:layout_alignStart="@+id/radioButtonGreen"
+            android:layout_below="@+id/radioButtonGreen"
+            android:text="Blue" />
+    </RadioGroup>
+
+    <Switch
+        android:id="@+id/switchLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock"
+        android:textIsSelectable="false"
+        android:textOff="Unlocked"
+        android:textOn="Locked"
+        android:layout_below="@+id/switchLights"
+        android:layout_alignLeft="@+id/switchLights"
+        android:layout_alignStart="@+id/switchLights" />
+
+    <Switch
+        android:id="@+id/switchLights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lights"
+        android:layout_alignTop="@+id/soundHornButton"
+        android:layout_centerHorizontal="true" />
+    />
+
+</RelativeLayout>

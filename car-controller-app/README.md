@@ -46,7 +46,7 @@ In order to connect to the Solace London Lab, all you need to do is activate the
 
 Once the controller app and the sensor app are connected, you can control the sensor by selecting the appropriate buttons and track it using the tracker map.
 
-
+You can also view the car's location on an online version of the tracker, which receives the same  data using our JavaScript API, here: http://london.solace.com/connected-car/vin-track/ 
 ### 2. Download a free Community Edition VMR and connect to that
 Download a Community Edition VMR from http://dev.solace.com/downloads/ 
 ...other stuff?

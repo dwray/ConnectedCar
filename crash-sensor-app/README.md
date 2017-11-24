@@ -8,15 +8,15 @@ This application demonstrates using an Android device as an IoT device, and prov
 Events and commands are user defined values used to differentiate the data that you publish or receive. For example, if you have a device that is publishing GPS coordinates, you may choose to publish it as a 'GPS' event. Or, if you want to send an alert command to a device, you may choose to publish it as an 'alert' or 'notification' command.
 
 The sensor application can publish data to the following event topics:
+- `track` (Tracking data)
+- `crash` (Crash notification)
+
+It can receive data on the following command topics:
 - `engine` (Start Engine)
 - `horn` (Sound Horn)
 - `lock` (Unlock Door)
 - `light` (Turn on/off Lights)
 - `color` (Change Ambience)
-
-It can receive data on the following command topics:
-- `track` (Tracking data)
-- `crash` (Crash notification)
 
 The controller application is essentially the reverse.
 

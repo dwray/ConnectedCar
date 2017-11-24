@@ -72,5 +72,5 @@ In order to really see this demo do something, you must have the sensor app runn
 ##Resources
 - [Solace IoT](https://solace.com/internet-of-things)
 - [VMR Community Edition](http://dev.solace.com/downloads/)
-- [Solace Cloud](http://dev.solace.com/downloads/) -- needs proper solace cloud link
+- [Solace Cloud](http://cloud.solace.com/)
 - [MQTT](http://mqtt.org/)

@@ -36,6 +36,8 @@ public class IoTDevice {
     private static final String DEVICE_ID_PREFIX = "deviceId:";
     private static final String AUTH_TOKEN_PREFIX = "authToken:";
     private static final String G_LEVEL_PREFIX = "gLevel:";
+    private static final String VIN_PREFIX = "vin:";
+    private String VIN;
 
     /**
      * Create a new IoTDevice instance.
@@ -45,14 +47,17 @@ public class IoTDevice {
      * @param deviceType            The type of the device
      * @param deviceID              The device ID
      * @param authorizationToken    The authorization token of the device
+     * @param gLevel                The acceleration which will trigger a crash notification
+     * @param VIN                   The VIN of the 'car'
      */
-    public IoTDevice(String deviceName, String organization, String deviceType, String deviceID, String authorizationToken, String gLevel) {
+    public IoTDevice(String deviceName, String organization, String deviceType, String deviceID, String authorizationToken, String gLevel, String VIN) {
         this.deviceName = deviceName;
         this.organization = organization;
         this.deviceType = deviceType;
         this.deviceID = deviceID;
         this.authorizationToken = authorizationToken;
         this.gLevel = gLevel;
+        this.VIN = VIN;
     }
 
     /**
@@ -74,6 +79,8 @@ public class IoTDevice {
                 this.authorizationToken = value.substring(AUTH_TOKEN_PREFIX.length());
             } else if (value.contains(G_LEVEL_PREFIX)) {
                 this.gLevel = value.substring(G_LEVEL_PREFIX.length());
+            } else if (value.contains(VIN_PREFIX)) {
+                this.VIN = value.substring(VIN_PREFIX.length());
             }
         }
     }
@@ -91,6 +98,7 @@ public class IoTDevice {
         deviceSet.add(DEVICE_ID_PREFIX + this.deviceID);
         deviceSet.add(AUTH_TOKEN_PREFIX + this.authorizationToken);
         deviceSet.add(G_LEVEL_PREFIX + this.gLevel);
+        deviceSet.add(VIN_PREFIX + this.VIN);
 
         return deviceSet;
     }
@@ -116,5 +124,9 @@ public class IoTDevice {
     }
     public String getGLevel() {
         return gLevel;
+    }
+
+    public String getVIN() {
+        return VIN;
     }
 }

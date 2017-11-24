@@ -151,6 +151,9 @@ public class LoginPagerFragment extends IoTStarterPagerFragment {
         if (app.getgLevel() != null) {
             ((EditText) getActivity().findViewById(R.id.gLevelValue)).setText(app.getgLevel());
         }
+        if (app.getVIN() != null) {
+            ((EditText) getActivity().findViewById(R.id.VINValue)).setText(app.getVIN());
+        }
 
         // Set 'Connected to IoT' to Yes if MQTT client is connected. Leave as No otherwise.
         if (app.isConnected()) {
@@ -209,6 +212,7 @@ public class LoginPagerFragment extends IoTStarterPagerFragment {
                     app.getDeviceId() == null || app.getDeviceId().equals("") ||
                     app.getAuthToken() == null || app.getAuthToken().equals("") ||
                     app.getgLevel() == null || app.getgLevel().equals("") ||
+                    app.getVIN() == null || app.getVIN().equals("") ||
                     ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
                     ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED  ||
                     ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
@@ -247,6 +251,7 @@ public class LoginPagerFragment extends IoTStarterPagerFragment {
         app.setOrganization(((EditText) getActivity().findViewById(R.id.organizationValue)).getText().toString());
         app.setAuthToken(((EditText) getActivity().findViewById(R.id.authTokenValue)).getText().toString());
         app.setGLevel(((EditText) getActivity().findViewById(R.id.gLevelValue)).getText().toString());
+        app.setVIN(((EditText) getActivity().findViewById(R.id.VINValue)).getText().toString());
         IoTClient iotClient = IoTClient.getInstance(context, app.getOrganization(), app.getDeviceId(), app.getDeviceType(), app.getAuthToken(), app.getgLevel(), app.getVIN());
         activateButton.setEnabled(false);
         if (buttonTitle.equals(getResources().getString(R.string.activate_button)) && !app.isConnected()) {

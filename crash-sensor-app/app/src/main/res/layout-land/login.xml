@@ -30,10 +30,37 @@
               android:background="@drawable/ic_background"
               tools:context="com.solace.labs.cardemo.sensor.fragments.LoginPagerFragment"
         >
+        <TextView
+            android:id="@+id/VIN"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingBottom="@dimen/activity_setting_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_setting_margin"
+            android:text="@string/VIN_setting" />
+
+        <EditText
+            android:id="@+id/VINValue"
+            style="@style/MyActionBarTitleText"
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="@string/vin_value"
+            android:inputType="textNoSuggestions|number"
+            android:paddingBottom="@dimen/activity_setting_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_setting_margin" />
+
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                       android:layout_gravity="center">
+
         <TextView
             style="@style/MyActionBarTitleText"
             android:layout_width="wrap_content"

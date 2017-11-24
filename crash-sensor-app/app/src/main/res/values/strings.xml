@@ -53,6 +53,7 @@
     <string name="device_id">User Name: -</string>
     <string name="is_connected">Connected to Solace: No</string>
     <string name="g_level">G Level in M/S: </string>
+    <string name="VIN">VIN: </string>
 
     <string name="organization_hint">Router IP:Port</string>
     <string name="device_id_hint">User Name</string>
@@ -78,11 +79,13 @@
     <string name="organization_setting">Router IP: </string>
     <string name="device_id_setting">User Name: </string>
     <string name="g_level_setting">G Level in M/S: </string>
+    <string name="VIN_setting">VIN: </string>
     <string name="auth_token_setting">Password: </string>
 
     <string name="organization_value">Router IP</string>
     <string name="device_id_value">User Name</string>
     <string name="g_level_value">33.0</string>
+    <string name="vin_value">1234567890123456789</string>
     <string name="auth_token_value">Password</string>
 
     <string name="save_button">Save Settings</string>

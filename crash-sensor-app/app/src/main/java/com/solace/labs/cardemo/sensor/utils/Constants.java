@@ -26,6 +26,7 @@ public class Constants {
     public static final String LOGIN_LABEL = "LOGIN";
     public static final String IOT_LABEL = "IOT";
     public static final String LOG_LABEL = "LOG";
+    public static final String VIN = "VIN";
 
     public enum ActionStateStatus {
         CONNECTING, DISCONNECTING, SUBSCRIBE, PUBLISH

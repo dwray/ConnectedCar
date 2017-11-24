@@ -117,6 +117,7 @@ public class IoTStarterPagerFragment extends Fragment {
             app.setOrganization(((EditText) getActivity().findViewById(R.id.organizationValue)).getText().toString());
             app.setAuthToken(((EditText) getActivity().findViewById(R.id.authTokenValue)).getText().toString());
             app.setGLevel(((EditText) getActivity().findViewById(R.id.gLevelValue)).getText().toString());
+            app.setVIN(((EditText) getActivity().findViewById(R.id.VINValue)).getText().toString());
         }
 
         // Handle presses on the action bar items

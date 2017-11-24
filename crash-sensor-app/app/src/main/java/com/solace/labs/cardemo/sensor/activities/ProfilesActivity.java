@@ -149,6 +149,7 @@ public class ProfilesActivity extends Activity {
                 app.setDeviceId(profile.getDeviceID());
                 app.setAuthToken(profile.getAuthorizationToken());
                 app.setGLevel(profile.getGLevel());
+                app.setVIN(profile.getVIN());
                 break;
             }
         }
@@ -170,7 +171,7 @@ public class ProfilesActivity extends Activity {
                 .setPositiveButton(getResources().getString(R.string.save_dialog_ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Editable value = input.getText();
-                        IoTDevice profile = new IoTDevice(value.toString(), app.getOrganization(), "Android", app.getDeviceId(), app.getAuthToken(), app.getgLevel());
+                        IoTDevice profile = new IoTDevice(value.toString(), app.getOrganization(), "Android", app.getDeviceId(), app.getAuthToken(), app.getgLevel(), app.getVIN());
 
                         // Check if profile name already exists.
                         if (app.getProfileNames().contains(profile.getDeviceName())) {

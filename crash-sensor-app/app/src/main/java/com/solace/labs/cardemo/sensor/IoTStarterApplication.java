@@ -142,7 +142,8 @@ public class IoTStarterApplication extends Application {
         String deviceId = settings.getString(Constants.DEVICE_ID, null);
         String gLevel = settings.getString(Constants.GLEVEL, null);
         String authToken = settings.getString(Constants.AUTH_TOKEN, null);
-        IoTDevice newDevice = new IoTDevice("default", organization, deviceType, deviceId, authToken, gLevel);
+        String vin = settings.getString(Constants.VIN, null);
+        IoTDevice newDevice = new IoTDevice("default", organization, deviceType, deviceId, authToken, gLevel, vin);
         this.profiles.add(newDevice);
         this.profileNames.add("default");
 
@@ -157,6 +158,7 @@ public class IoTStarterApplication extends Application {
             editor.remove(Constants.DEVICE_ID);
             editor.remove(Constants.AUTH_TOKEN);
             editor.remove(Constants.GLEVEL);
+            editor.remove(Constants.VIN);
             //editor.apply();
             editor.commit();
         }
@@ -167,6 +169,7 @@ public class IoTStarterApplication extends Application {
         this.setDeviceId(newDevice.getDeviceID());
         this.setAuthToken(newDevice.getAuthorizationToken());
         this.setGLevel(newDevice.getGLevel());
+        this.setVIN(newDevice.getVIN());
     }
 
     /**

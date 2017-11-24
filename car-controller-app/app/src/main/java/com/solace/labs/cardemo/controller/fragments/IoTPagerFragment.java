@@ -13,6 +13,7 @@
  * Contributors:
  *    Mike Robertson - initial contribution
  *    Aldo Eisma - fix occasional stale reference to drawingView
+ *    David Wray - updated for Solace CarDemo
  *******************************************************************************/
 package com.solace.labs.cardemo.controller.fragments;
 

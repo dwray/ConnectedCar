@@ -102,7 +102,7 @@ public class MainPagerActivity extends FragmentActivity {
     /**
      * Adapter for the ViewPager. Adds the tutorial fragments to the pager.
      */
-    private class MyPagerAdapter extends FragmentPagerAdapter /*implements onMapReadyCallback */ {
+    private class MyPagerAdapter extends FragmentPagerAdapter  {
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -140,8 +140,6 @@ public class MainPagerActivity extends FragmentActivity {
                     return Constants.IOT_LABEL;
                 case 2:
                     return Constants.LOG_LABEL;
-                case 3:
-                    return Constants.TRACKING_LABEL;
                 default:
                     return null;
             }

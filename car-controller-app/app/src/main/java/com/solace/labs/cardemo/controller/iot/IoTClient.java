@@ -12,6 +12,7 @@
  *
  * Contributors:
  *    Mike Robertson - initial contribution
+ *    David Wray - updated for Solace CarDemo
  *******************************************************************************/
 package com.solace.labs.cardemo.controller.iot;
 
@@ -30,7 +31,6 @@ import javax.net.SocketFactory;
  */
 public class IoTClient {
     private static final String TAG = IoTClient.class.getName();
-    private static final String IOT_DEVICE_USERNAME  = "use-token-auth";
 
     private static IoTClient instance;
     private MqttAndroidClient client;
@@ -77,7 +77,7 @@ public class IoTClient {
      * @param deviceID      The device ID used to identify the device
      * @param deviceType    The type of the device as registered in IoT
      * @param authorizationToken The authorization token for the device
-     * @param VIN Used to send an SMS
+     * @param VIN           Used to identify the vehicle we are controlling
      *
      * @return The IoTClient object for the application
      */

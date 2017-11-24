@@ -12,6 +12,7 @@
  *
  * Contributors:
  *    Mike Robertson - initial contribution
+ *    David Wray - updated for Solace CarDemo
  *******************************************************************************/
 package com.solace.labs.cardemo.controller.utils;
 
@@ -26,11 +27,7 @@ public class Constants {
     public static final String LOGIN_LABEL = "LOGIN";
     public static final String IOT_LABEL = "IOT";
     public static final String LOG_LABEL = "LOG";
-    public static final String TRACKING_LABEL = "TRACKING";
 
-    public enum ConnectionType {
-        M2M, QUICKSTART, IOTF
-    }
 
     public enum ActionStateStatus {
         CONNECTING, DISCONNECTING, SUBSCRIBE, PUBLISH

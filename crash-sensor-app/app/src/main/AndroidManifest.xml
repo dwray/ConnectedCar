@@ -15,6 +15,7 @@
  * Contributors:
  *    Mike Robertson - initial contribution
  *    Aldo Eisma - update to Android M, minor fixes and enhancements
+ *    David Wray - updated for Solace CarDemo
 *******************************************************************************/
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"

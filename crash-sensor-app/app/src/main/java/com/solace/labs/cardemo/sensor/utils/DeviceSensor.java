@@ -13,6 +13,7 @@
  * Contributors:
  *    Mike Robertson - initial contribution
  *    Aldo Eisma - add bearing and speed to acceleration message
+ *    David Wray - updated for Solace CarDemo
  *******************************************************************************/
 package com.solace.labs.cardemo.sensor.utils;
 
@@ -201,7 +202,7 @@ public class DeviceSensor implements SensorEventListener {
                 heading = app.getCurrentLocation().getBearing();
                 speed = app.getCurrentLocation().getSpeed() * 3.6f;
             }
-            // come up with suitable numbers of G to check for a crash
+            // G Value to detect a crash set in the Login page
             if ((thisG[0] > crashpos) || (thisG[1] > crashpos) || (thisG[2] > crashpos) || (thisG[0] < crashneg) || (thisG[1] < crashneg) || (thisG[2] < crashneg)) {
                 // this is to stop sending 10s of crash messages during a single crash, we'll only send a crash message once every <minCrashInterval_ms> milliseconds.
                 if ((System.currentTimeMillis() - lastCrash) < minCrashInterval_ms) {

@@ -13,6 +13,7 @@
  * Contributors:
  *    Mike Robertson - initial contribution
  *    Aldo Eisma - light can now be controlled with toggle, on and off
+ *    David Wray - updated for Solace CarDemo
  *******************************************************************************/
 package com.solace.labs.cardemo.sensor.utils;
 

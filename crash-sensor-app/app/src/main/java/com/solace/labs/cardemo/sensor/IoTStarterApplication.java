@@ -13,6 +13,7 @@
  * Contributors:
  *    Mike Robertson - initial contribution
  *    Aldo Eisma - location update and light control fixed, updated for Android M
+ *    David Wray - updated for Solace CarDemo
  *******************************************************************************/
 package com.solace.labs.cardemo.sensor;
 

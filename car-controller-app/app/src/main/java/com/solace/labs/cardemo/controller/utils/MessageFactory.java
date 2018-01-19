@@ -75,31 +75,6 @@ public class MessageFactory {
                 " } }";
     }
 
-    /**
-     * Construct a JSON formatted string touchmove event message
-     * @param x Double of relative x position on screen
-     * @param y Double of relative y position on screen
-     * @param dX Double of relative x delta from previous position
-     * @param dY Double of relative y delta from previous position
-     * @param ended True if final message of the touch, false otherwise
-     * @return String containing JSON formatted message
-     */
-    public static String getTouchMessage(double x, double y, double dX, double dY, boolean ended) {
-        String endString;
-        if (ended) {
-            endString = ", \"ended\":1 } }";
-        } else {
-            endString = " } }";
-        }
-
-        return "{ \"d\": { " +
-                "\"screenX\":" + x + ", " +
-                "\"screenY\":" + y + ", " +
-                "\"deltaX\":" + dX + ", " +
-                "\"deltaY\":" + dY +
-                endString;
-    }
-
     public static String getStartEngineMessage() {
         return "{\"d\":{" +
                 "\"engine\":\"" + "start" + "\"" +

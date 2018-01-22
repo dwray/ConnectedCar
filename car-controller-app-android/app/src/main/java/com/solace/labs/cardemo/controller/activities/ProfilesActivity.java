@@ -268,6 +268,8 @@ public class ProfilesActivity extends Activity {
                 return true;
             case R.id.action_crash_reset:
                 app.setCrashed(false);
+                app.setReceiveCount(0);
+                app.setPublishCount(0);
                 app.setAccelData(new float[]{0.0f,0.0f,0.0f});
                 Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_IOT);
                 actionIntent.putExtra(Constants.INTENT_DATA, Constants.INTENT_DATA_RECEIVED);

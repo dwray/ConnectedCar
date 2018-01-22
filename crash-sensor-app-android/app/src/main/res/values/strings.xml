@@ -40,6 +40,7 @@
     <string name="profiles_label">Open Profiles</string>
     <string name="web_label">Open Quickstart</string>
     <string name="clear_profiles_label">Clear Profiles</string>
+    <string name="reset_label">Reset</string>
     <string name="clear_log_label">Clear Log</string>
     <string name="tutorial_label">Open Tutorial</string>
 

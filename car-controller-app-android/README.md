@@ -62,7 +62,7 @@ Required:
 ##Installation
 1. `git clone https://github.com/dwray/ConnectedCar.git`
 2. Launch Android Studio and select "Open an Existing Android Studio Project".
-3. Navigate to your `ConnecrtedCar` folder and open the projects.
+3. Navigate to your `ConnectedCar` folder and open the projects.
 4. Run the applications.
 
 ##Notes

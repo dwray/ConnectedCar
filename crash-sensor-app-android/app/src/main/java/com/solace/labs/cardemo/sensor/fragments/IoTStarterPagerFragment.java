@@ -21,6 +21,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,7 @@ import com.solace.labs.cardemo.sensor.R;
 import com.solace.labs.cardemo.sensor.activities.MainPagerActivity;
 import com.solace.labs.cardemo.sensor.activities.TutorialPagerActivity;
 import com.solace.labs.cardemo.sensor.activities.ProfilesActivity;
+import com.solace.labs.cardemo.sensor.utils.Constants;
 
 /**
  * This class provides common properties and functions for fragment subclasses used in the application.

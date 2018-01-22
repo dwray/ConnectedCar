@@ -19,6 +19,7 @@ package com.solace.labs.cardemo.sensor.fragments;
 
 import android.app.AlertDialog;
 import android.content.*;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
@@ -137,10 +138,32 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         });
 
         switchLock = (Switch) getActivity().findViewById(R.id.switchLocked);
+
+        Button buttonReset = (Button) getActivity().findViewById(R.id.button_reset);
+        buttonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleReset();
+            }
+        });
  //       switchLock.setEnabled(false);
 
         DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
         drawingView.setContext(context);
+    }
+
+    private void handleReset() {
+        app.setColor(Color.argb(255, 58, 74, 83));
+        app.setAccelData(new float[]{0.0f,0.0f,0.0f});
+        app.setPublishCount(0);
+        app.setReceiveCount(0);
+
+        DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
+        drawingView.colorBackground(app.getColor());
+
+        processAccelEvent();
+        processPublishIntent();
+        processReceiveIntent();
     }
 
     /**
@@ -268,9 +291,6 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
                     playerLock.start();
                 }
             }
-            DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
-            //           drawingView.setBackgroundColor(app.getColor());
-            drawingView.colorBackground(app.getColor());
         } else if (data.equals(Constants.ALERT_EVENT)) {
             String message = intent.getStringExtra(Constants.INTENT_DATA_MESSAGE);
             new AlertDialog.Builder(getActivity())

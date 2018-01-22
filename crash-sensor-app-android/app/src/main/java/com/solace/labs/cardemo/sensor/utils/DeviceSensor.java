@@ -160,7 +160,6 @@ public class DeviceSensor implements SensorEventListener {
      */
     private class SendSensorTimerTask extends TimerTask {
 
-        float maxG[] = new float[] {0.0F,0.0F,0.0F};
         private void logToPage(String message){
             // Log message with the following format:
             // [yyyy-mm-dd hh:mm:ss.S] message
@@ -249,16 +248,14 @@ public class DeviceSensor implements SensorEventListener {
                     Log.d(TAG, ".run() received exception on publishEvent()");
                 }
                 app.setAccelData(thisG);
-                maxG = thisG.clone();
-                    } else {
-                app.setAccelData(maxG);
+                Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_IOT);
+                actionIntent.putExtra(Constants.INTENT_DATA, Constants.CRASH_EVENT);
+                context.sendBroadcast(actionIntent);
             }
 
             //String runningActivity = app.getCurrentRunningActivity();
             //if (runningActivity != null && runningActivity.equals(IoTPagerFragment.class.getName())) {
-            Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_IOT);
-            actionIntent.putExtra(Constants.INTENT_DATA, Constants.CRASH_EVENT);
-            context.sendBroadcast(actionIntent);
+
             //}
         }
     }

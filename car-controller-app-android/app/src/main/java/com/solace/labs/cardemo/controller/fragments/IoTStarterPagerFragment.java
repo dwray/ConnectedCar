@@ -140,6 +140,8 @@ public class IoTStarterPagerFragment extends Fragment {
             case R.id.action_crash_reset:
                 app.setCrashed(false);
                 app.setAccelData(new float[]{0.0f,0.0f,0.0f});
+                app.setReceiveCount(0);
+                app.setPublishCount(0);
                 Intent actionIntent = new Intent(Constants.APP_ID + Constants.INTENT_IOT);
                 actionIntent.putExtra(Constants.INTENT_DATA, Constants.CRASH_EVENT);
                 context.sendBroadcast(actionIntent);

@@ -106,31 +106,3 @@ NSString * const JSON_LON             = @"longitude";
 
 
 @end
-
-/*
- server = <org>.messaging.internetofthings.ibmcloud.com:1883
- username = "use-token-auth"
- password = token returned from registering device
- clientid = d:<org>:iPhone:<deviceid>
- 
- topic = cardemo/evt/<event-type-id>/fmt/<format>
-    <event-type-id> = ???
-    <format> = json?
- 
- topic = cardemo/cmd/<command-type-id>/fmt/<format>
- <command-type-id> = ???
- <format> = json?
- 
- QoS=0
- No retained support
- 
- JSON payload, top level = d
- {
- "d": {
- "name1": "stringvalue",
- "name2": intvalue,
- ...
- }
- }
- */
-

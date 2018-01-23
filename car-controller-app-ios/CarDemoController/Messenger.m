@@ -75,7 +75,7 @@
         opts.cleanSession = YES;
         opts.keepAliveInterval = 30;
 
-        opts.userName = @"use-token-auth";
+        opts.userName = appDelegate.userName;
         opts.password = [appDelegate password];
         
         [MqttClient setTrace:self.tracer];

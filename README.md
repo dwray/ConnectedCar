@@ -4,7 +4,7 @@ ConnectedCar is a demo application for interacting with a Solace Router.
 The application turns your mobile device into a sensor that publishes and receives data to and from a Solace Router using the MQTT protocol.
 
 ## Short Description
-This application demonstrates using an Android or iOS device as an IoT device, and provides a variety of events and commands that it can publish or receive data to and from.
+This application demonstrates using an Android or iOS device to simulate two way communication between a Connected Car and a remote control application, and provides a variety of events and commands that it can publish or receive data to and from.
 
 Events and commands are user defined values used to differentiate the data that you publish or receive. For example, if you have a device that is publishing GPS coordinates, you may choose to publish it as a 'GPS' event. Or, if you want to send an alert command to a device, you may choose to publish it as an 'alert' or 'notification' command.
 
@@ -21,7 +21,7 @@ It can receive data on the following command topics:
 
 The controller application is essentially the reverse.
 
-For more information on Solace for IoT, refer to https://solace.com/internet-of-things.
+For more information on Solace for IoT, refer to https://solace.com/internet-of-things.  To see the demo in action, refer to https://solace.com/blog/use-cases/crashing-connected-car-demo.
 
 ## How it works
 A device that is connected to a Solace Router may publish and subscribe to data that is presented as either an event or command using the MQTT protocol.
@@ -30,7 +30,7 @@ The Eclipse Paho MQTT Android Service or the IBM WebSphere iOS MQTT Client is us
 MQTT is a lightweight messaging protocol that supports publish/subscribe messaging. With MQTT, an application publishes messages to a topic. These messages may then be received by another application that is subscribed to that topic. This allows for a detached messaging network where the subscribers and publishers do not need to be aware of each other.
 The topics used by this application can be seen in the table below:
 
-##Topics
+## Topics
 |Topic|Sample Topic|Sample Messages|
 |:---------- |:---------- |:------------|
 |`cardemo/<Vehicle VIN>/evt/<eventId>/fmt/json`|`cardemo/1234567890123456789/evt/track/fmt/json`|`{"d":{"acceleration_x":2.23517E-7,"acceleration_y":9.77631,"acceleration_z":0.812348,"roll":-2.7514932E-7,"pitch":-1.4878927,"yaw":0.0,"longitude":0.0,"latitude":0.0,"heading":0.0,"speed":0.0,"trip_id":"1511515976","timestamp":"2017-11-24T09:33:02.637+00:00"}}`|

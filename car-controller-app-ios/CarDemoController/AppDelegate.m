@@ -197,7 +197,7 @@
     self.sensorFrequency = IOTSensorFreqDefault;
     
     self.messageLog = [[NSMutableArray alloc] init];
-    self.color = [UIColor colorWithRed:104 green:109 blue:115 alpha:1.0];
+    self.color = [UIColor colorWithRed:104.0/255.0 green:109.0/255.0 blue:115.0/255.0 alpha:1.0];
     
     self.profiles = [[NSMutableArray alloc] init];
     self.routerAddress = @"";

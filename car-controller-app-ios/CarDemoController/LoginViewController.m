@@ -176,7 +176,7 @@
         
         appDelegate.sensorFrequency = IOTSensorFreqDefault;
         serverAddress = appDelegate.routerAddress;
-        clientID = [NSString stringWithFormat:IOTClientID, appDelegate.routerAddress, IOTDeviceType, appDelegate.userName];
+        clientID = [NSString stringWithFormat:IOTClientID, appDelegate.routerAddress, IOTDeviceType, appDelegate.VIN];
         
 #ifdef USE_LOCAL_NOTIFICATIONS
         // Run the MQTT Connection in a background task so that it continues processing messages

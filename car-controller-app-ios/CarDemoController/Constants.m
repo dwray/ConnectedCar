@@ -33,7 +33,7 @@ NSString * const IOTDeviceType        = @"iPhone";
 
 NSString * const IOTServerAddress     = @"%@.messaging.internetofthings.ibmcloud.com";
 int        const IOTServerPort        = 1883;
-// d:org:type:id
+// d:org:type:VIN
 NSString * const IOTClientID          = @"d:%@:%@:%@";
 NSString * const IOTEventTopic        = @"cardemo/%@/evt/%@/fmt/%@";
 NSString * const IOTCommandTopic      = @"cardemo/%@/cmd/%@/fmt/%@";

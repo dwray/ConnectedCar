@@ -49,10 +49,10 @@ Once the controller app and the sensor app are connected, you can control the se
 You can also view the car's location on an online version of the tracker, which receives the same  data using our JavaScript API, here: http://london.solace.com/connected-car/vin-track/ 
 ### 2. Download a free Community Edition VMR and connect to that
 Download a Community Edition VMR from http://dev.solace.com/downloads/ 
-...other stuff?
+Send MQTT messages using these samples: https://dev.solace.com/samples/solace-samples-mqtt/
 
 ### 3. Connect to Solace Cloud
-Put some Solace Cloud Stuff here
+Sign up for a free trial of Solace Cloud at: https://cloud.solace.com/
 
 ## Prerequisites (Android)
 Required:

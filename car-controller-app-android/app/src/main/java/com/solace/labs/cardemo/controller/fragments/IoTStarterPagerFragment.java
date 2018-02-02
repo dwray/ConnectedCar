@@ -32,7 +32,6 @@ import android.widget.EditText;
 import com.solace.labs.cardemo.controller.IoTStarterApplication;
 import com.solace.labs.cardemo.controller.R;
 import com.solace.labs.cardemo.controller.activities.MainPagerActivity;
-import com.solace.labs.cardemo.controller.activities.MapsActivity;
 import com.solace.labs.cardemo.controller.activities.TutorialPagerActivity;
 import com.solace.labs.cardemo.controller.activities.ProfilesActivity;
 import com.solace.labs.cardemo.controller.utils.Constants;
@@ -163,8 +162,6 @@ public class IoTStarterPagerFragment extends Fragment {
 
     private void openTracking() {
         Log.d(TAG, ".openTracking() entered");
-        Intent trackingIntent = new Intent(getActivity().getApplicationContext(), MapsActivity.class);
-        trackingIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        getActivity().startActivityIfNeeded(trackingIntent, 0);
+        ((MainPagerActivity) getActivity()).setCurrentItem(2);
     }
 }

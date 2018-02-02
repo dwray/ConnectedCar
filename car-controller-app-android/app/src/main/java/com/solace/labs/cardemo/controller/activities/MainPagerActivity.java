@@ -15,7 +15,10 @@
  *******************************************************************************/
 package com.solace.labs.cardemo.controller.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,6 +34,7 @@ import com.solace.labs.cardemo.controller.R;
 import com.solace.labs.cardemo.controller.fragments.IoTPagerFragment;
 import com.solace.labs.cardemo.controller.fragments.LogPagerFragment;
 import com.solace.labs.cardemo.controller.fragments.LoginPagerFragment;
+import com.solace.labs.cardemo.controller.fragments.MapsFragment;
 import com.solace.labs.cardemo.controller.utils.Constants;
 
 /**
@@ -41,6 +45,7 @@ public class MainPagerActivity extends FragmentActivity {
     public static final String TAG = MainPagerActivity.class.getName();
 
     private ViewPager pager;
+    private MainPagerRcvr mainPagerRcvr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,12 @@ public class MainPagerActivity extends FragmentActivity {
         }
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        if (mainPagerRcvr == null) {
+            Log.d(TAG, ".onResume() - Registering NotifcationBroadcastReceiver");
+            mainPagerRcvr = new MainPagerRcvr();
+        }
+
+        getApplicationContext().registerReceiver(mainPagerRcvr, new IntentFilter(Constants.APP_ID + Constants.SWITCH_TO_MAP_EVENT));
     }
 
     @Override
@@ -119,6 +130,9 @@ public class MainPagerActivity extends FragmentActivity {
                     Log.d(TAG, "init iotpagerfragment");
                     return IoTPagerFragment.newInstance();
                 case 2:
+                    Log.d(TAG, "init mapsfragment");
+                    return MapsFragment.newInstance();
+                case 3:
                     Log.d(TAG, "init logpagerfragment");
                     return LogPagerFragment.newInstance();
                 default:
@@ -128,7 +142,7 @@ public class MainPagerActivity extends FragmentActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         @Override
@@ -139,10 +153,20 @@ public class MainPagerActivity extends FragmentActivity {
                 case 1:
                     return Constants.IOT_LABEL;
                 case 2:
+                    return Constants.TRACKING_LABEL;
+                case 3:
                     return Constants.LOG_LABEL;
+
                 default:
                     return null;
             }
+        }
+    }
+    public class MainPagerRcvr extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setCurrentItem(2);
         }
     }
 }

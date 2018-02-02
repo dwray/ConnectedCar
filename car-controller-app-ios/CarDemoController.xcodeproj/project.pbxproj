@@ -516,6 +516,10 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = com.solace.labs;
+				KnownAssetTags = (
+					TrackerViewController,
+					TrackingViewController,
+				);
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Solace Corporation";
 				TargetAttributes = {

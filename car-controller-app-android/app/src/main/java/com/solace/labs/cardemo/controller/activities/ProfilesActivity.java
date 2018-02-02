@@ -29,6 +29,7 @@ import android.widget.*;
 
 import com.solace.labs.cardemo.controller.IoTStarterApplication;
 import com.solace.labs.cardemo.controller.R;
+import com.solace.labs.cardemo.controller.fragments.MapsFragment;
 import com.solace.labs.cardemo.controller.utils.Constants;
 import com.solace.labs.cardemo.controller.iot.IoTDevice;
 
@@ -240,9 +241,8 @@ public class ProfilesActivity extends Activity {
 
     private void openTracking() {
         Log.d(TAG, ".openTracking() entered");
-        Intent trackingIntent = new Intent(getApplicationContext(), MapsActivity.class);
-        trackingIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivityIfNeeded(trackingIntent, 0);
+        Intent trackingIntent = new Intent(getApplicationContext(), MainPagerActivity.class);
+        startActivityIfNeeded(trackingIntent,2);
     }
     private void openHome() {
         Log.d(TAG, ".openHome() entered");

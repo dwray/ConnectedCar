@@ -26,7 +26,9 @@ public class Constants {
 
     public static final String LOGIN_LABEL = "LOGIN";
     public static final String IOT_LABEL = "IOT";
+    public static final String TRACKING_LABEL = "MAP";
     public static final String LOG_LABEL = "LOG";
+    public static final String SWITCH_TO_MAP_EVENT = "SWITCH_TO_MAP_EVENT";
 
 
     public enum ActionStateStatus {
@@ -61,6 +63,7 @@ public class Constants {
     public final static String INTENT_LOGIN = "INTENT_LOGIN";
     public final static String INTENT_IOT = "INTENT_IOT";
     public final static String INTENT_TRACKING = "INTENT_TRACKING";
+    public final static String INTENT_PENDING = "INTENT_PENDING";
     public final static String INTENT_LOG = "INTENT_LOG";
     public final static String INTENT_PROFILES = "INTENT_PROFILES";
 

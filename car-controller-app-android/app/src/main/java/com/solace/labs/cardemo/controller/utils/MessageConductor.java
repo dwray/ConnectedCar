@@ -27,8 +27,6 @@ import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import com.solace.labs.cardemo.controller.IoTStarterApplication;
 import com.solace.labs.cardemo.controller.R;
-import com.solace.labs.cardemo.controller.activities.MainPagerActivity;
-import com.solace.labs.cardemo.controller.fragments.MapsFragment;
 import com.solace.labs.cardemo.controller.activities.ProfilesActivity;
 import com.solace.labs.cardemo.controller.fragments.IoTPagerFragment;
 import com.solace.labs.cardemo.controller.fragments.LogPagerFragment;
@@ -146,7 +144,6 @@ public class MessageConductor {
 
             if (runningActivity != null) {
                 app.setCarLocation(lat, lng);
-
                 if (isACrash) {
                     app.setAccelData(new float[]{(float) accel_x, (float) accel_y, (float) accel_z});
                     Uri crashSound = Uri.parse("android.resource://" + app.getPackageName() + "/raw/crash");
@@ -161,7 +158,6 @@ public class MessageConductor {
                             .setPriority(Notification.PRIORITY_MAX)
                             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC); //to show content in lock screen
                     Intent mapIntent = new Intent(context, NotificationReceiver.class);
-//                    mapIntent.setAction("com.solace.MainPagerRcvr");
                     mapIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     PendingIntent pi = PendingIntent.getBroadcast(context, (int) System.currentTimeMillis(), mapIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     mBuilder.setContentIntent(pi);

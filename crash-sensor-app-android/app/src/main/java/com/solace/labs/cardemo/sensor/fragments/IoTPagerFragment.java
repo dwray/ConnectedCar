@@ -49,19 +49,19 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
     private final static String TAG = IoTPagerFragment.class.getName();
     private Switch switchLock;
     private MediaPlayer playerLock;
+    private View iOTView;
 
-        /**************************************************************************
+    /**************************************************************************
          * Fragment functions for establishing the fragment
          **************************************************************************/
 
     public static IoTPagerFragment newInstance() {
-        IoTPagerFragment i = new IoTPagerFragment();
-        return i;
+        return new IoTPagerFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.iot, container, false);
+        return iOTView = inflater.inflate(R.layout.iot, container, false);
     }
 
     /**
@@ -86,7 +86,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
                 }
             };
         }
-        DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
+        DrawingView drawingView = (DrawingView) iOTView.findViewById(R.id.drawing);
         if (drawingView != null) {
             drawingView.setKeepScreenOn(true);
         }
@@ -110,7 +110,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         } catch (IllegalArgumentException iae) {
             // Do nothing
         }
-        DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
+        DrawingView drawingView = (DrawingView) iOTView.findViewById(R.id.drawing);
         if (drawingView != null) {
             drawingView.setKeepScreenOn(false);
         }
@@ -129,7 +129,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         app.setDisplayActivity(getActivity());
 
         // setup button listeners
-        Button button = (Button) getActivity().findViewById(R.id.sendText);
+        Button button = (Button) iOTView.findViewById(R.id.sendText);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,9 +137,9 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
             }
         });
 
-        switchLock = (Switch) getActivity().findViewById(R.id.switchLocked);
+        switchLock = (Switch) iOTView.findViewById(R.id.switchLocked);
 
-        Button buttonReset = (Button) getActivity().findViewById(R.id.button_reset);
+        Button buttonReset = (Button) iOTView.findViewById(R.id.button_reset);
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +148,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         });
  //       switchLock.setEnabled(false);
 
-        DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
+        DrawingView drawingView = (DrawingView) iOTView.findViewById(R.id.drawing);
         drawingView.setContext(context);
     }
 
@@ -158,7 +158,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         app.setPublishCount(0);
         app.setReceiveCount(0);
 
-        DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
+        DrawingView drawingView = (DrawingView) iOTView.findViewById(R.id.drawing);
         drawingView.colorBackground(app.getColor());
 
         processAccelEvent();
@@ -174,9 +174,9 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
        // Log.d(TAG, ".updateViewStrings() entered");
         // DeviceId should never be null at this point.
         if (app.getVIN() != null) {
-            ((TextView) getActivity().findViewById(R.id.VINIoT)).setText(app.getVIN());
+            ((TextView) iOTView.findViewById(R.id.VINIoT)).setText(app.getVIN());
         } else {
-            ((TextView) getActivity().findViewById(R.id.VINIoT)).setText("-");
+            ((TextView) iOTView.findViewById(R.id.VINIoT)).setText("-");
         }
 
         // Update publish count view.
@@ -260,7 +260,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
             processAccelEvent();
         } else if (data.equals(Constants.COLOR_COMMAND)) {
             Log.d(TAG, "Updating background color");
-            DrawingView drawingView = (DrawingView) getActivity().findViewById(R.id.drawing);
+            DrawingView drawingView = (DrawingView) iOTView.findViewById(R.id.drawing);
             //           drawingView.setBackgroundColor(app.getColor());
             drawingView.colorBackground(app.getColor());
         } else if (data.equals(Constants.LOCK_COMMAND)) {
@@ -311,7 +311,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         Log.v(TAG, ".processPublishIntent() entered");
         String publishedString = this.getString(R.string.messages_published);
         publishedString = publishedString.replace("0",Integer.toString(app.getPublishCount()));
-        ((TextView) getActivity().findViewById(R.id.messagesPublishedView)).setText(publishedString);
+        ((TextView) iOTView.findViewById(R.id.messagesPublishedView)).setText(publishedString);
     }
 
     /**
@@ -322,7 +322,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         Log.v(TAG, ".processReceiveIntent() entered");
         String receivedString = this.getString(R.string.messages_received);
         receivedString = receivedString.replace("0",Integer.toString(app.getReceiveCount()));
-        ((TextView) getActivity().findViewById(R.id.messagesReceivedView)).setText(receivedString);
+        ((TextView) iOTView.findViewById(R.id.messagesReceivedView)).setText(receivedString);
     }
 
     /**
@@ -331,8 +331,8 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
     private void processAccelEvent() {
         Log.v(TAG, ".processAccelEvent()");
         float[] accelData = app.getAccelData();
-        ((TextView) getActivity().findViewById(R.id.accelX)).setText("x: " + accelData[0]);
-        ((TextView) getActivity().findViewById(R.id.accelY)).setText("y: " + accelData[1]);
-        ((TextView) getActivity().findViewById(R.id.accelZ)).setText("z: " + accelData[2]);
+        ((TextView) iOTView.findViewById(R.id.accelX)).setText("x: " + accelData[0]);
+        ((TextView) iOTView.findViewById(R.id.accelY)).setText("y: " + accelData[1]);
+        ((TextView) iOTView.findViewById(R.id.accelZ)).setText("z: " + accelData[2]);
     }
 }

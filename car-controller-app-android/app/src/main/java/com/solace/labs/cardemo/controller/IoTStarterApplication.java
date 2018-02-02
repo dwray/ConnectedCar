@@ -69,7 +69,7 @@ public class IoTStarterApplication extends Application {
 
     private int color = Color.argb(1, 58, 74, 83);
     private boolean isCameraOn = false;
-    private float[] accelData;
+    private float[] accelData = {0.0f,0.0f,0.0f};
     private boolean accelEnabled = true;
 
     private Camera camera;

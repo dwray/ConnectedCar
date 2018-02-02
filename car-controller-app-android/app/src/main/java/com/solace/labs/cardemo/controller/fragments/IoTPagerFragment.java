@@ -50,19 +50,19 @@ import org.eclipse.paho.client.mqttv3.MqttException;
  */
 public class IoTPagerFragment extends IoTStarterPagerFragment {
     private final static String TAG = IoTPagerFragment.class.getName();
+    private View iOTView;
 
     /**************************************************************************
      * Fragment functions for establishing the fragment
      **************************************************************************/
 
     public static IoTPagerFragment newInstance() {
-        IoTPagerFragment i = new IoTPagerFragment();
-        return i;
+        return new IoTPagerFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.iot, container, false);
+        return iOTView = inflater.inflate(R.layout.iot, container, false);
     }
 
     /**
@@ -95,6 +95,8 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
 
         getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
                 new IntentFilter(Constants.APP_ID + Constants.INTENT_IOT));
+        getActivity().getApplicationContext().registerReceiver(broadcastReceiver,
+                new IntentFilter(Constants.APP_ID + Constants.INTENT_TRACKING));
 
         // initialise
         initializeIoTActivity();
@@ -287,9 +289,9 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
        // Log.d(TAG, ".updateViewStrings() entered");
         // VIN should never be null at this point.
         if (app.getVIN() != null) {
-            ((TextView) getActivity().findViewById(R.id.deviceIDIoT)).setText(app.getVIN());
+            ((TextView) iOTView.findViewById(R.id.deviceIDIoT)).setText(app.getVIN());
         } else {
-            ((TextView) getActivity().findViewById(R.id.deviceIDIoT)).setText("-");
+            ((TextView) iOTView.findViewById(R.id.deviceIDIoT)).setText("-");
         }
 
         // Update publish count view.
@@ -297,6 +299,9 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
 
         // Update receive count view.
         processReceiveIntent();
+
+        // Make sure accel readings don't get blanked
+        processAccelEvent(true);
 
         // TODO: Update badge value?
         //int unreadCount = app.getUnreadCount();
@@ -393,7 +398,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         Log.v(TAG, ".processPublishIntent() entered");
         String publishedString = this.getString(R.string.messages_published);
         publishedString = publishedString.replace("0",Integer.toString(app.getPublishCount()));
-        ((TextView) getActivity().findViewById(R.id.messagesPublishedView)).setText(publishedString);
+        ((TextView) iOTView.findViewById(R.id.messagesPublishedView)).setText(publishedString);
     }
 
     /**
@@ -404,7 +409,7 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         Log.v(TAG, ".processReceiveIntent() entered");
         String receivedString = this.getString(R.string.messages_received);
         receivedString = receivedString.replace("0",Integer.toString(app.getReceiveCount()));
-        ((TextView) getActivity().findViewById(R.id.messagesReceivedView)).setText(receivedString);
+        ((TextView) iOTView.findViewById(R.id.messagesReceivedView)).setText(receivedString);
     }
 
     /**
@@ -414,9 +419,9 @@ public class IoTPagerFragment extends IoTStarterPagerFragment {
         Log.v(TAG, ".processAccelEvent()");
         if (isCrash) {
             float[] accelData = app.getAccelData();
-            ((TextView) getActivity().findViewById(R.id.accelX)).setText("x: " + accelData[0]);
-            ((TextView) getActivity().findViewById(R.id.accelY)).setText("y: " + accelData[1]);
-            ((TextView) getActivity().findViewById(R.id.accelZ)).setText("z: " + accelData[2]);
+            ((TextView) iOTView.findViewById(R.id.accelX)).setText("x: " + accelData[0]);
+            ((TextView) iOTView.findViewById(R.id.accelY)).setText("y: " + accelData[1]);
+            ((TextView) iOTView.findViewById(R.id.accelZ)).setText("z: " + accelData[2]);
         }
     }
 }

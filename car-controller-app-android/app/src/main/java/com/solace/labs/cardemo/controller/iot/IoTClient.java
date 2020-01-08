@@ -112,10 +112,14 @@ public class IoTClient {
         if (factory == null || this.getOrganization().equals("quickstart")) {
  //           connectionURI = "tcp://" + this.getOrganization() + IOT_ORGANIZATION_TCP;
             // straight URL if you please
-            connectionURI = "tcp://" + this.getOrganization()+":1883";
+            connectionURI = "tcp://" + this.getOrganization();
         } else {
  //           connectionURI = "ssl://" + this.getOrganization() + IOT_ORGANIZATION_SSL;
-            connectionURI = "ssl://" + this.getOrganization()+":1883";
+            connectionURI = "ssl://" + this.getOrganization();
+        }
+        // if a port has been added, leave it, otherwise add the default MQTT port
+        if (!this.getOrganization().contains(":")) {
+            connectionURI += ":1883";
         }
 //DWDW maybe make some changes here
         if (!isMqttConnected()) {
